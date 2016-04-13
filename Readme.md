@@ -8,7 +8,7 @@ Capítulo 2
 - 10050 - Hartals (Python)
 Capítulo 4
 - 10152 - ShellSort (Java)
-- 120   - Stacks of Flapjacks (Java)
+- 120 - Stacks of Flapjacks (Java)
 - 10037 - Bridge (Java)
 Capítulo 12
 - 10177 - (2/3/4)-D Sqr/Rects/Cubes/Boxes? (Java)
