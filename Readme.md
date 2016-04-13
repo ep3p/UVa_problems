@@ -13,13 +13,15 @@ Capítulo 4
 - 120 - Stacks of Flapjacks (Java)
 - 10037 - Bridge (Java)
 
+Capítulo 5
+- 10127 - Ones (Python)
+
 Capítulo 12
 - 10177 - (2/3/4)-D Sqr/Rects/Cubes/Boxes? (Java)
 
 ##En progreso
 - Little Bishops/Capítulo 8 (Java) (Antonio)
 - Ant on a Chessboard/Capítulo 12 (Java) (Antonio)
-- Ones/Capítulo 5 (Pepe)
 
 ##Jodidamente difíciles que aun no se contemplan
 - 15-Puzzle Problem/Capítulo 8
