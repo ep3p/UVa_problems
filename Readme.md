@@ -2,14 +2,17 @@
 ##Resueltos
 Capítulo 1
 - 10142 - Australian Voting (Java, Python)
+
 Capítulo 2
 - 10044 - Erdos Numbers (Java)
 - 10315 - Poker Hands (Python)
 - 10050 - Hartals (Python)
+
 Capítulo 4
 - 10152 - ShellSort (Java)
 - 120 - Stacks of Flapjacks (Java)
 - 10037 - Bridge (Java)
+
 Capítulo 12
 - 10177 - (2/3/4)-D Sqr/Rects/Cubes/Boxes? (Java)
 
