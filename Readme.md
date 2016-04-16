@@ -8,6 +8,9 @@ Capítulo 2
 - 10315 - Poker Hands (Python)
 - 10050 - Hartals (Python)
 
+Capítulo 3
+- 848 - Fmt
+
 Capítulo 4
 - 10152 - ShellSort (Java)
 - 120 - Stacks of Flapjacks (Java)
