@@ -9,7 +9,7 @@ Capítulo 2
 - 10050 - Hartals (Python)
 
 Capítulo 3
-- 848 - Fmt
+- 848 - Fmt (Python)
 
 Capítulo 4
 - 10152 - ShellSort (Java)
