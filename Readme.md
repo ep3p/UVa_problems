@@ -11,6 +11,7 @@ Capítulo 2
 Capítulo 3
 - 848 - Fmt (Python)
 - 850 - Crypt Kicker II (Python)
+- 10132 - File Fragmentation (Python)
 
 Capítulo 4
 - 10152 - ShellSort (Java)
