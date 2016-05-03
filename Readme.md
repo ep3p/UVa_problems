@@ -21,6 +21,7 @@ Capítulo 4
 
 Capítulo 5
 - 10127 - Ones (Python)
+- 847 - A Multiplication Game (Python)
 
 Capítulo 12
 - 10177 - (2/3/4)-D Sqr/Rects/Cubes/Boxes? (Java)
