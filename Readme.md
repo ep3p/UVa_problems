@@ -23,6 +23,9 @@ Capítulo 5
 - 10127 - Ones (Python)
 - 847 - A Multiplication Game (Python)
 
+Capítulo 6
+- 10213 - How Many Pieces of Land ? (Python)
+
 Capítulo 12
 - 10177 - (2/3/4)-D Sqr/Rects/Cubes/Boxes? (Java)
 - 10161 - Ant On A ChessBoard (Java)
