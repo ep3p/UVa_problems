@@ -25,7 +25,7 @@ Capítulo 5
 
 Capítulo 6
 - 10213 - How Many Pieces of Land ? (Python)
-- 10198	- Counting
+- 10198	- Counting (Python)
 
 Capítulo 12
 - 10177 - (2/3/4)-D Sqr/Rects/Cubes/Boxes? (Java)
