@@ -30,10 +30,11 @@ Capítulo 6
 Capítulo 12
 - 10177 - (2/3/4)-D Sqr/Rects/Cubes/Boxes? (Java)
 - 10161 - Ant On A ChessBoard (Java)
+- 10182 - Bee Maja (Java) 
 
 ##En progreso
 - Little Bishops/Capítulo 8 (Java) (Antonio)
-- Bee Maja/Capítulo 12 (Java) (Antonio)
+- Dermuba Triangle/Capítulo 12 (Java) (Antonio)
 
 ##Jodidamente difíciles que aun no se contemplan
 - 15-Puzzle Problem/Capítulo 8
