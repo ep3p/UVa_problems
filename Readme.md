@@ -32,6 +32,9 @@ Capítulo 12
 - 10161 - Ant On A ChessBoard (Java)
 - 10182 - Bee Maja (Java) 
 
+Capítulo 13
+- 10310 - Dog and Gopher (Java)
+
 ##En progreso
 - Little Bishops/Capítulo 8 (Java) (Antonio)
 - Dermuba Triangle/Capítulo 12 (Java) (Antonio)
