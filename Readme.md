@@ -34,6 +34,7 @@ Capítulo 12
 
 Capítulo 13
 - 10310 - Dog and Gopher (Java)
+- 10195 - The Knights of The Round Table (Java)
 
 ##En progreso
 - Little Bishops/Capítulo 8 (Java) (Antonio)
