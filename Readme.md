@@ -35,6 +35,8 @@ Capítulo 12
 Capítulo 13
 - 10310 - Dog and Gopher (Java)
 - 10195 - The Knights of The Round Table (Java)
+- 10167 - Birthday Cake (Java)
+- 10209 - Is this Integration? (Java)
 
 ##En progreso
 - Little Bishops/Capítulo 8 (Java) (Antonio)
