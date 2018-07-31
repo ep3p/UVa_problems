@@ -17,7 +17,7 @@ Capítulo 5
 - 847 - A Multiplication Game (Python)
 
 Capítulo 6
-- 10213 - How Many Pieces of Land ? (Python)
+- 10213 - How Many Pieces of Land? (Python)
 - 10198	- Counting (Python)
 - 10247	- Complete Tree Labeling (Python)
 
