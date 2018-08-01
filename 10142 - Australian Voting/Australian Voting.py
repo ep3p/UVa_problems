@@ -3,6 +3,7 @@ import sys
 lines = iter(sys.stdin.read().splitlines())
 
 cases_n = int(next(lines))
+cases_results = []
 
 for _ in range(cases_n):
     for line in lines:
@@ -46,5 +47,6 @@ for _ in range(cases_n):
                     for vote in votes:
                         vote.remove(i)
     
-    for winner in winners:                 
-        print(winner)
+    cases_results.append('\n'.join(winners))
+
+print('\n'.join(cases_results))
