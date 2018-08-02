@@ -30,23 +30,24 @@ for _ in range(cases_n):
         for vote in votes:
             counter[vote[0]] += 1
     
-        max_value = max(counter)
+        max_value = max([count for i, count in enumerate(counter) if pos_president[i]])
         if max_value > len(votes)/2.0:
             max_index = counter.index(max_value)
             winners.append(candidates_list[max_index])
+            continue
 
-        min_value = min(counter)
+        min_value = min([count for i, count in enumerate(counter) if pos_president[i]])
         if max_value == min_value:
             for i, posible in enumerate(pos_president):
                 if posible:
                     winners.append(candidates_list[i])
         else:
             for i, count in enumerate(counter):
-                if count == min_value:
+                if pos_president[i] and count == min_value:
                     pos_president[i] = False
                     for vote in votes:
                         vote.remove(i)
     
     cases_results.append('\n'.join(winners))
 
-print('\n'.join(cases_results))
+print('\n\n'.join(cases_results))
