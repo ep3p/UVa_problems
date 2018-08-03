@@ -1,131 +1,97 @@
-
 import java.util.*;
 
 class Main
 {
-    static Scanner entrada = new Scanner( System.in ); // .useLocale( Locale.US );
+    static Scanner input = new Scanner(System.in); 
 
-    public static void main( String args[] )
+    public static void main(String[] args)
     {
-        int num_casos = entrada.nextInt();
-        entrada.nextLine(); // Paso del final de la primera línea a la segunda
-//      entrada.nextLine(); // Leo la línea vacía que hay después del número de casos
+        int candidates_n;
+        String candidates_list[];
 
-        String nom_candidatos[] = new String [ 20 ];
-        int votos[][] = new int [ 1000 ][ 20 ];
-        int N;
-        boolean activos[] = new boolean [ 20 ];
+        int votes_n, order_n;
+        int votes[][] = new int [1000][20];
+        boolean pos_president[];
 
-        for( int caso=1; caso <= num_casos; caso++ ) {
+        int counter[];
+        int pointers[];
+        int maxim, minim;
+
+        int cases_n = input.nextInt(); input.nextLine();
+        String line;
+        for(int c=0; c < cases_n; c++)
+        {
+            do
+                line = input.nextLine().trim();
+            while(input.hasNext() && line.length() == 0);
+
+            candidates_n = Integer.parseInt(line);
+            candidates_list = new String [candidates_n];
+            for(String candidate : candidates_list)
+                candidate = input.nextLine().trim();
             
-            String linea;
-            do {
-                linea = entrada.nextLine().trim();
-            } while( entrada.hasNext() && linea.length() == 0 );
-
-            int num_candidatos = Integer.parseInt( linea ); // entrada.nextInt();
-
-            if ( num_candidatos <= 0 ) {
-                if ( caso < num_casos ) System.out.println();
-                continue;
-            }
-
-            for( int i=0; i < num_candidatos; i++ ) {
-                nom_candidatos[i] = entrada.nextLine().trim();
-            }
-            N=0;
-            while( entrada.hasNext() ) {
-                linea = entrada.nextLine().trim();
-                if ( linea.length() == 0 ) break;
-
-                int i=0;
-                for( int c=0; c < num_candidatos; c++ ) {
-                    votos[N][c]=0;
-                    while( i < linea.length() && (linea.charAt(i) < '0' || linea.charAt(i) > '9') ) i++;
-                    while( i < linea.length() && (linea.charAt(i) >= '0' && linea.charAt(i) <= '9') ) {
-                        votos[N][c] = 10*votos[N][c] + (linea.charAt(i)-'0');
-                        i++;
+            votes_n = 0;
+            do{
+                line = input.nextLine().trim();
+                if(line.length() == 0)
+                    break;
+                
+                String[] integerStrings = line.split(" ");
+                order_n = 0;
+                for(String gap : integerStrings)
+                    if(gap.length() > 0)
+                    {
+                        votes[votes_n][order_n] = Integer.parseInt(gap) - 1;
+                        order_n++;
                     }
-                    votos[N][c]--;
-                }
-                N++;
-            }
+                votes_n++;
+            }while(input.hasNext());
 
-            int ganador = averigua_ganador( votos, activos, N, num_candidatos );
-
-            if ( ganador != -1 ) {
-                System.out.println( nom_candidatos[ganador] );
-            } else {
-                for( int c=0; c < num_candidatos; c++ ) {
-                    if ( activos[c] ) System.out.println( nom_candidatos[c] );
-                }
-            }
-
-            if ( caso < num_casos ) System.out.println();
-
-
-            /* COMIENZO: Comprobamos que lo hemos leído bien
-            System.out.println( "Caso : " + caso );
-            System.out.println( num_candidatos + " candidatos." );
-            for( int c=0; c < num_candidatos; c++ ) {
-                System.out.println( nom_candidatos[c] );
-            }
-            System.out.println( N + " votos." );
-            for( int v=0; v < N; v++ ) {
-                for( int c=0; c < num_candidatos; c++ ) System.out.print( " " + votos[v][c] );
-                System.out.println();
-            }
-            * FINAL: Comprobamos que lo hemos leído bien */
-        }
-    }
-    
-    static int averigua_ganador( int votos[][], boolean activos[], int N, int C )
-    {
-        // Aquí ponéis vosotros vuestro código
-        // N Número de votos
-        // C Número de candidatos
-
-        //Array para contar los votos
-        int contVotos[] = new int [C];
-        //int p = 0;
-        //Al inicio todos están activos
-        for (int i=0; i<activos.length;i++){
-            activos[i] = true;
-        }
-        int num_activos = activos.length;
-        do{
-            for (int i=0; i<C; i++){ //Al comienzo de cada pasada todos tienen 0 votos
-                contVotos[i] = 0; 
-            }
-
-            for (int j=0; j<N; j++){
-                for (int v=0; v<votos[j].length;v++){
-                    if(activos[votos[j][v]]){
-                        contVotos[votos[j][v]]++;
+            pos_president = new boolean[candidates_n]; Arrays.fill(pos_president, true);
+            winners = new boolean[candidates_n];
+            pointers[] = new int [votes_n];
+            
+            while(true)
+            {
+                counter[] = new int[candidates_n];
+                for(int i=0; i < votes_n; i++)
+                {   
+                    while(!pos_president[votes[i][pointers[i]]])
+                        pointers[i]++;
+                    maxim = ++counter[votes[i][pointers[i]]];
+                    if(maxim <<1 > votes_n)
+                    {   
+                        winners[votes[i][pointers[i]]] = true;
                         break;
                     }
                 }
+                
+                minim = maxim
+                for(int i=0; i < candidates_n; i++)
+                    if(pos_president[i])
+                    {
+                        maxim = Math.max(maxim, counter[i]);
+                        minim = Math.min(minim, counter[i]);
+                    }
+                if(minim == maxim)
+                {   
+                    winners = pos_president;
+                    break;
+                }
+                else
+                {
+                    for(int i=0; i < candidates_n; i++)
+                        if(pos_president[i] && minim == counter[i])
+                            pos_president[i] = false;
+                }
+
             }
 
-            int maxV=0, minV=100000,ganador=-1;
-            for (int i=0; i<contVotos.length;i++){
-                if(activos[i]){
-                if(contVotos[i]>maxV){maxV = contVotos[i];}
-                if(contVotos[i]<minV){minV = contVotos[i];}
-                if(contVotos[i]==maxV){ganador = i;}
-                }
-            }
-            //Hay mayoría
-            if (maxV*2>N) return ganador;
-            //Todos empatan
-            if (maxV==minV) return-1;
-            //En otro caso se desactivan los candidatos con el minimo de votos
-           
-            for (int i=0; i<contVotos.length;i++){
-                if(contVotos[i]==minV){activos[i]=false;num_activos--;}
-            }
-           
-        }while(num_activos>0);
-        return -1;
+            for(int i=0; i < candidates_n; i++)
+                if (winner[i])
+                    System.out.println(candidates_list[i]);
+            if (c < cases_n-1)
+                System.out.println();
+        }
     }
 }
