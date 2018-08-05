@@ -12,10 +12,10 @@ class Main
         int votes_n, order_n;
         int votes[][] = new int [1000][20];
         boolean pos_president[];
-
+        boolean winners[];
         int counter[];
         int pointers[];
-        int maxim, minim;
+        int maxim = 0, minim;
 
         int cases_n = input.nextInt(); input.nextLine();
         String line;
@@ -27,9 +27,8 @@ class Main
 
             candidates_n = Integer.parseInt(line);
             candidates_list = new String [candidates_n];
-            for(String candidate : candidates_list)
-                candidate = input.nextLine().trim();
-            
+            for(int i=0; i < candidates_n; i++)
+                candidates_list[i] = input.nextLine().trim();
             votes_n = 0;
             do{
                 line = input.nextLine().trim();
@@ -49,11 +48,11 @@ class Main
 
             pos_president = new boolean[candidates_n]; Arrays.fill(pos_president, true);
             winners = new boolean[candidates_n];
-            pointers[] = new int [votes_n];
+            pointers = new int [votes_n];
             
             while(true)
             {
-                counter[] = new int[candidates_n];
+                counter = new int[candidates_n];
                 for(int i=0; i < votes_n; i++)
                 {   
                     while(!pos_president[votes[i][pointers[i]]])
@@ -66,7 +65,7 @@ class Main
                     }
                 }
                 
-                minim = maxim
+                minim = maxim;
                 for(int i=0; i < candidates_n; i++)
                     if(pos_president[i])
                     {
@@ -88,7 +87,7 @@ class Main
             }
 
             for(int i=0; i < candidates_n; i++)
-                if (winner[i])
+                if (winners[i])
                     System.out.println(candidates_list[i]);
             if (c < cases_n-1)
                 System.out.println();
