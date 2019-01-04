@@ -1,28 +1,21 @@
 import sys
-
 lines = iter(sys.stdin.read().splitlines())
 
-cont = 1
+steps = []
+product = 1
+while product < 4294967295:
+    product *= 9
+    steps.append(product)
+    product *= 2
+    steps.append(product)
 
-sear = []
-
-while cont < 4294967295:
-	cont *= 9
-	sear.append(cont)
-	
-	cont *= 2
-	sear.append(cont)
-
-for line in lines:
-	
-	for i,n in enumerate(sear):
-		if int(line) <= n:
-			r = i
-			break
-
-	if r % 2 == 0:
-		res = "Stan wins."
-	else:
-		res = "Ollie wins."
-	
-	print(res, sep = "", end = "\n")
+for line in lines:	
+    objective = int(line)
+    for i, n in enumerate(steps):
+        if n >= objective:
+	        break
+    if i % 2 == 0:
+        result = 'Stan wins.'
+    else:
+        result = 'Ollie wins.'
+    print(result, sep = '', end = '\n')
