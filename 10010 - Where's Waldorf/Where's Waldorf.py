@@ -1,56 +1,47 @@
 import sys
 
 lines = iter(sys.stdin.read().splitlines())
+N = int(next(lines))
+result = []
+directions = [(0,1),(1,1),(1,0),(1,-1),(0,-1),(-1,-1),(-1,0),(-1,1)]
 
-T = int(next(lines))
+for _ in range(N):
 
-out = []
+    next(lines)    
+    rows, columns = map(int, next(lines).split())
+    matrix = []
+    
+    for _ in range(rows):
+        matrix.append(list(next(lines).split()[0].lower()))
+    
+    n_names = int(next(lines))  
+    names = []
+    for _ in range(n_names):
+        names.append(next(lines).split()[0].lower())
+    
+    not_found = [True]*n_names  
+    positions = ['']*n_names
+    
+    for r, row in enumerate(matrix):
+        for c, item in enumerate(row):
+            for i, name in enumerate(names):
+                if name[0] == item and not_found[i]:
+                    for h, v in directions:
+                        r_end = r+(len(name)-1)*h
+                        c_end = c+(len(name)-1)*v
+                        if 0 <= r_end < rows and 0 <= c_end < columns:
+                            r_cont = 0
+                            c_cont = 0
+                            for letter in name:
+                                if matrix[r+r_cont][c+c_cont] == letter:
+                                    r_cont += h
+                                    c_cont += v
+                                else:
+                                    break
+                            else:
+                                not_found[i] = False
+                                positions[i] = '%d %d\n' % (r+1, c+1)                               
+                                break
+    result.append(''.join(positions))
 
-for i in range(T):
-	
-	for line in lines:
-		num = line.split()
-		if len(num) != 0:
-			f = int(num[0])
-			c = int(num[1])
-			break
-	
-	mat = []
-	
-	for j in range(f):
-		mat.append(list(next(lines).split()[0].lower()))
-	
-	nnames = int(next(lines))
-	
-	names = []
-	for j in range(nnames):
-		names.append(next(lines).split()[0].lower())
-	
-	nfound = [True]*nnames
-	
-	res = [""]*nnames
-	
-	for n,fil in enumerate(mat):
-		for m,letter in enumerate(fil):
-			for pos,name in enumerate(names):
-				if name[0] == letter and nfound[pos]:
-					for sen in [(0,1),(1,1),(1,0),(1,-1),(0,-1),(-1,-1),(-1,0),(-1,1)]:
-						endf = n+(len(name)-1)*sen[0]
-						endc = m+(len(name)-1)*sen[1]
-						if endf >= 0 and endf <= f-1 and endc >= 0 and endc <= c-1:
-							contf = 0
-							contc = 0
-							for let in name:
-								if mat[n+contf][m+contc] == let:
-									contf += sen[0]
-									contc += sen[1]
-								else:
-									break
-							else:
-								res[pos] = str(n+1)+" "+str(m+1)
-								nfound[pos] = False
-								break
-	
-	out.append("\n".join(res)+"\n")
-
-print("\n".join(out),sep="",end="")
+print('\n'.join(result), sep='', end='')
