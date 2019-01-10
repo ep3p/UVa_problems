@@ -1,23 +1,18 @@
-T = int(input())
-
-for i in range(T):
-	
-	D = int(input())
-	P = int(input())
-	
-	q,r = divmod(D,7)
-	w = [True,True,True,True,True,False,False]
-	w = w*q + w[:r]
-	f = [0]*(7*q+r)
-	
-	p = set()
-	
-	for j in range(P):
-		p.add(int(input()))
-	
-	for j in p:
-		for z in range(j-1,D,j):
-			if w[z]:
-				f[z] = 1
-	
-	print(sum(f),sep="")
+N = int(input())
+for _ in range(N):  
+    duration = int(input()) 
+    week = [False]*5 + [True]*2
+    n_weeks, r_days = divmod(duration, 7)
+    days = week*n_weeks + week[:r_days]
+    weekends = 2*n_weeks + int(r_days > 5)
+    
+    parties = set()
+    n_parties = int(input())
+    for _ in range(n_parties):
+        parties.add(int(input()))
+    
+    for period in parties:
+        for day in range(period-1, duration, period):
+            days[day] = True
+    
+    print(sum(days)-weekends)
