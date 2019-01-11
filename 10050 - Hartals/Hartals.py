@@ -1,3 +1,4 @@
+import sys
 lines = iter(sys.stdin.read().splitlines())
 
 N = int(next(lines))
